@@ -12,7 +12,13 @@
     border-radius: 8px;
 }
 
+.backBtn:disabled{
+    cursor: no-drop;
+}
 
+.nextBtn:disabled{
+    cursor: no-drop;;
+}
 .nextBtn{
     background-color: #525A65;
     border-radius: 8px;

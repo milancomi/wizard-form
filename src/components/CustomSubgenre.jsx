@@ -1,6 +1,6 @@
-// import React from "react";
+import React from "react";
 
-// // Material UI
+// Material UI
 // import Grid from "@material-ui/core/Grid";
 // import TextField from "@material-ui/core/TextField";
 // import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -8,36 +8,51 @@
 // import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 // import CheckBoxIcon from "@material-ui/icons/CheckBox";
 
-// const CustomSubgenre = ({ handleChange, value, isDescriptionRequired }) => {
-//   return (
-//     <Grid>
-//       <TextField
-//         fullWidth
-//         InputLabelProps={{
-//           shrink: true,
-//         }}
-//         margin="dense"
-//         onChange={(e) => handleChange("customSubgenre", e.target.value)}
-//         placeholder="Subgenre name"
-//         value={value}
-//         variant="outlined"
-//       />
-//       <FormControlLabel
-//         control={
-//           <Checkbox
-//             icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
-//             checkedIcon={<CheckBoxIcon fontSize="small" color="primary" />}
-//             name="checkedI"
-//             checked={isDescriptionRequired}
-//           />
-//         }
-//         label="Description is required for this subgenre"
-//         onChange={(e) =>
-//           handleChange("isDescriptionRequired", e.target.checked)
-//         }
-//       />
-//     </Grid>
-//   );
-// };
+const CustomSubgenre = ({ handleChange, value, isDescriptionRequired }) => {
+  return (
+      <div className="customSubGenreForm">
+      <div className="form-input">
+        <label className="inputDescr" htmlFor="fname">
+          Subgenre name
+        </label>
+        <input
+            margin="dense"
+            onChange={(e) => handleChange("customSubgenre", e.target.value)}
+            placeholder="Insert subgenre name"
+            className="form-text-input"
+            value={value}
+            variant="outlined"
+        />
+      </div>
+      </div>
+    // <Grid>
+    //   <TextField
+    //     fullWidth
+    //     InputLabelProps={{
+    //       shrink: true,
+    //     }}
+    //     margin="dense"
+    //     onChange={(e) => handleChange("customSubgenre", e.target.value)}
+    //     placeholder="Subgenre name"
+    //     value={value}
+    //     variant="outlined"
+    //   />
+    //   <FormControlLabel
+    //     control={
+    //       <Checkbox
+    //         icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
+    //         checkedIcon={<CheckBoxIcon fontSize="small" color="primary" />}
+    //         name="checkedI"
+    //         checked={isDescriptionRequired}
+    //       />
+    //     }
+    //     label="Description is required for this subgenre"
+    //     onChange={(e) =>
+    //       handleChange("isDescriptionRequired", e.target.checked)
+    //     }
+    //   />
+    // </Grid>
+  );
+};
 
-// export default CustomSubgenre;
+export default CustomSubgenre;
