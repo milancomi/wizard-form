@@ -1,0 +1,73 @@
+.genreField{
+    /* float:left; */
+    display:inline-block;
+    height:100px;
+    width:10rem;
+    margin:20px 20px 20px 30px ;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color:#CACACA;
+
+}
+
+.genreField2{
+    display:inline-block;
+
+}
+.genreField:hover{
+    background-color:#CACACA;
+}
+
+.genreName{
+    text-align:center
+}
+
+.genreForm{
+    background-color: #FEFEFE;
+    display:inline-block;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #BBBBBB;
+
+}
+
+.grayClr{
+    background-color: #525965;
+}
+
+.btnNext{
+    float:right;
+    margin-top:5em;
+}
+
+.selectedField{
+    background-color:#CACACA !important; 
+}
+
+
+
+
+.Next {
+    background-color: #525A65;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    margin: 10px 15px 0 0;
+    width: 100px;
+    cursor: pointer;
+  }
+  .Next:hover{
+    background-color: #666f7c;
+  }
+  .Next:disabled{
+    cursor: not-allowed;
+    background-color: #7aa07c;
+  }
+
+
+  .genreBtn{
+      width:100%;
+  }

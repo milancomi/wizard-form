@@ -1,0 +1,35 @@
+.backBtn{
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #525A65;
+    border-radius: 8px;
+}
+
+
+.nextBtn{
+    background-color: #525A65;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.nextBtn:hover{
+    background-color:#CACACA;
+}
+.backBtn:hover{
+    background-color:#CACACA;
+}

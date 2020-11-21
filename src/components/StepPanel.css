@@ -1,0 +1,21 @@
+.panelIndicator{
+  display:inline-block;
+  height:50px;
+  width:19%;
+  margin:20px 20px 20px 30px ;
+  border-radius: 50px;
+  border-style: solid;
+  border-width: 1px;
+  border-color:#CACACA;
+  
+}
+
+
+.panelIndicatorText{
+  text-align:center;
+  margin: 0.8rem auto !important;
+}
+.activeColor{
+background-color:#CACACA !important; 
+
+}
