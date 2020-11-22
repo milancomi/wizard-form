@@ -86,7 +86,6 @@ class Main extends Component {
       activeStep: 0,
       genres: dumyData["genres"],
       step: 1,
-      activeStep: 0,
       haveExtendedStep: false,
       isNewSubgenreSelected: false,
       isDescriptionRequired: false,
@@ -253,9 +252,6 @@ class Main extends Component {
       selectedSubgenre,
     } = newBookData;
     const dynamicSteps = haveExtendedStep ? extendedSteps : steps;
-    const subgenres = this.state.genres.find(
-      (genre) => genre.name === this.state.selectedGenre
-    )?.subgenres;
     const isLastStep = activeStep === dynamicSteps.length - 1;
 
     return (

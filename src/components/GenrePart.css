@@ -37,7 +37,7 @@
 }
 
 .grayClr {
-  background-color: #525965;
+  background-color: #525965 !important;
 }
 
 .btnNext {
