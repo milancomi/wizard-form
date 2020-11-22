@@ -24,6 +24,7 @@ class Main extends Component {
       isDescriptionRequired: false,
       selectedSubGenresByGenre: {},
       modalDialogShow:false,
+      formError:false,
       newBookData: {
         ISBN: "",
         author: "",
@@ -55,9 +56,16 @@ class Main extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    this.setState({modalDialogShow:true});
     const newBook = this.createNewBook();
-    console.log(newBook);
+    if(newBook.bookTitle==="")
+    {
+      this.setState({
+        formError:true
+      });
+    } else{
+      this.setState({modalDialogShow:true});
+      console.log(newBook);
+    }
   }
 
   handleCustomSubgenreInputs = (field, value) => {
@@ -86,6 +94,7 @@ class Main extends Component {
       isDescriptionRequired: false,
       selectedSubGenresByGenre: {},
       modalDialogShow:false,
+      formError:false,
       newBookData: {
         ISBN: "",
         author: "",
@@ -244,6 +253,7 @@ class Main extends Component {
       newBookData,
       selectedSubGenresByGenre,
       genres,
+      formError
     } = this.state;
     const {
       ISBN,
@@ -279,7 +289,7 @@ class Main extends Component {
                   : "panelIndicator"
               }
             >
-              <h4 className="panelIndicatorText">{label}</h4>
+              <h4 className="panelIndicatorText">{index+1} {label}</h4>
             </div>
           ))}
         </div>
@@ -346,7 +356,9 @@ class Main extends Component {
             />
           )
         )}
-
+          <div className={(formError === true) ? "displayError":"errorMsgField"}>
+            <h4 className="errorMsg">- Book title is required -</h4>
+          </div>
         <div>
           {" "}
           <button
@@ -362,11 +374,14 @@ class Main extends Component {
             color="primary"
             onClick={(e) => this.nextStep(e, isLastStep)}
             disabled={this.isNextDisabled(isLastStep)}
-            className="nextBtn"
+            className="nextBtn tooltip"
           >
-            {isLastStep ? "Add [+]" : "Next »"}
+            {isLastStep ? "Add [+]" : "Next » "}
+            {(this.isNextDisabled(isLastStep)) ? <span className="tooltiptext">Choose data first.</span> : ""}
           </button>
-        </div>
+          </div>
+
+
         <ModalDialog handleClose={this.handlerModal} modalDialog={this.state.modalDialogShow}/>
       </React.Fragment>
     );

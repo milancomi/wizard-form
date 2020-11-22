@@ -12,6 +12,8 @@ const SubgenrePart = ({
     <React.Fragment>
 
     <div  className="genreForm">
+    <h2 className="formText">Subenres:</h2>
+
       {subgenres.map((subgenre) => (
         <div key={subgenre.id}  className="genreField2">
           <SelectBtn

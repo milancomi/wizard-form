@@ -6,8 +6,8 @@ const GenrePart = ({ genres,handleChange,selectedGenre}) =>{
   return(
       <React.Fragment>
     <div className="genreForm">
+    <h2 className="formText">Genres:</h2>
       {genres.map((genre) => (
-        
         <div key={genre.id} className="genreField2">
           <SelectBtn handleOnClick={handleChange}
           name="selectedGenre"

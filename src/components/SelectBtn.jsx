@@ -1,11 +1,10 @@
 import React from "react";
 
-// Material UI
 
 const SelectBtn = ({ name, text, handleOnClick, selected, color }) => {
   return (
     <button
-      className="genreField"
+      className={selected ?  "genreField grayClr" : "genreField"}
       variant={selected ? "contained" : "outlined"}
       size="medium"
       color={color || "primary"}
