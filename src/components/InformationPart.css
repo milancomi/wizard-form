@@ -45,7 +45,10 @@
     height:40em;
 
   }
-
+  .mt-4{
+    margin-top: 56px !important;
+    left:33% !important;
+  }
   .mt-5{
     margin-top:100px !important;
   }

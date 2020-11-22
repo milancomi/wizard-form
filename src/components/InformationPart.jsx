@@ -22,185 +22,194 @@ const InformationPart = ({
   isDescriptionRequired,
   numberOfPages,
   publisher,
+  formError,
 }) => {
   return (
-<React.Fragment>
+    <React.Fragment>
+      <div className="infoForm">
+        <div className="form-input">
+          <label className="inputDescr" htmlFor="bookTitle">
+            Book Title
+          </label>
+          <input
+            id="outlined-full-width"
+            label="Book Title"
+            margin="dense"
+            name="bookTitle"
+            className="form-text-input"
+            onChange={(e) => handleChange("bookTitle", e.target.value)}
+            placeholder="Book Title"
+            value={bookTitle}
+            variant="outlined"
+          />
+        </div>
+        <div className="form-input">
+          <label className="inputDescr" htmlFor="country">
+            Author
+          </label>
+          <select
+            id="test"
+            label="Author"
+            margin="dense"
+            onChange={(e) => handleChange("author", e.target.value)}
+            value={author}
+            variant="outlined"
+          >
+            <option value="">Pick author</option>
 
-<div className="infoForm">
+            {authors.map((option) => (
+              <option key={option.value} value={option.value}>
+                {" "}
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
 
-      <div className="form-input">
-        <label className="inputDescr" htmlFor="bookTitle">
-          Book Title
-        </label>
-        <input
-          id="outlined-full-width"
-          label="Book Title"
-          margin="dense"
-          name="bookTitle"
-          className="form-text-input"
-          onChange={(e) => handleChange("bookTitle", e.target.value)}
-          placeholder="Book Title"
-          value={bookTitle}
-          variant="outlined"
-        />
-      </div>
-      <div className="form-input">
-        <label className="inputDescr" htmlFor="country">
-          Author
-        </label>
-        <select
-          id="test"
-          label="Author"
-          margin="dense"
-          onChange={(e) => handleChange("author", e.target.value)}
-          value={author}
-          variant="outlined"
-        >
-          <option value="">Pick author</option>
+        <div className="form-input">
+          <label className="inputDescr" htmlFor="ISBN">
+            ISBN
+          </label>
+          <input
+            className="form-text-input"
+            label="ISBN"
+            margin="dense"
+            onChange={(e) => handleChange("ISBN", e.target.value)}
+            placeholder="ISBN"
+            value={ISBN}
+            variant="outlined"
+          />
+        </div>
 
-          {authors.map((option) => (
-            <option key={option.value} value={option.value}>
-              {" "}
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </div>
+        <div className="form-input">
+          <label className="inputDescr" htmlFor="country">
+            Publisher
+          </label>
+          <select
+            label="Publisher"
+            margin="dense"
+            onChange={(e) => handleChange("publisher", e.target.value)}
+            value={publisher}
+            variant="outlined"
+          >
+            <option value="">Pick publisher</option>
+            {publishers.map((option) => (
+              <option key={option.value} value={option.value}>
+                {" "}
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-input">
+          <label className="inputDescr" htmlFor="fname">
+            No. of pages
+          </label>
+          <input
+            className="form-text-input "
+            label="Numbers of page"
+            margin="dense"
+            onChange={(e) => handleChange("numberOfPages", e.target.value)}
+            placeholder="Numbers of page"
+            value={numberOfPages}
+            variant="outlined"
+          />
+        </div>
+        <div className="form-input">
+          <label className="inputDescr" htmlFor="country">
+            Format
+          </label>
+          <input
+            type="date"
+            value={datePublished}
+            variant="outlined"
+            onChange={(e) => handleChange("datePublished", e.target.value)}
+            className="form-text-input"
+          />
+        </div>
+        <div className="form-input">
+          <label className="inputDescr" htmlFor="country">
+            Format
+          </label>
+          <select
+            label="Format"
+            margin="dense"
+            onChange={(e) => handleChange("format", e.target.value)}
+            value={format}
+            variant="outlined"
+          >
+            <option value="">Pick format</option>
 
-      <div className="form-input">
-        <label className="inputDescr" htmlFor="ISBN">
-          ISBN
-        </label>
-        <input
-          className="form-text-input"
-          label="ISBN"
-          margin="dense"
-          onChange={(e) => handleChange("ISBN", e.target.value)}
-          placeholder="ISBN"
-          value={ISBN}
-          variant="outlined"
-        />
-      </div>
+            {formats.map((option) => (
+              <option key={option.value} value={option.value}>
+                {" "}
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
 
-      <div className="form-input">
-        <label className="inputDescr" htmlFor="country">
-          Publisher
-        </label>
-        <select
-          label="Publisher"
-          margin="dense"
-          onChange={(e) => handleChange("publisher", e.target.value)}
-          value={publisher}
-          variant="outlined"
-        >
-          <option value="">Pick publisher</option>
-          {publishers.map((option) => (
-            <option key={option.value} value={option.value}>
-              {" "}
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="form-input">
-        <label className="inputDescr" htmlFor="fname">
-          No. of pages
-        </label>
-        <input
-          className="form-text-input "
-          label="Numbers of page"
-          margin="dense"
-          onChange={(e) => handleChange("numberOfPages", e.target.value)}
-          placeholder="Numbers of page"
-          value={numberOfPages}
-          variant="outlined"
-        />
-      </div>
-      <div className="form-input">
-        <label className="inputDescr" htmlFor="country">
-          Format
-        </label>
-      <input type="date"
-                value={datePublished}
-                variant="outlined"
-                onChange={(e) => handleChange("datePublished", e.target.value)}
-      className="form-text-input"/>
-      </div>
-      <div className="form-input">
-        <label className="inputDescr" htmlFor="country">
-          Format
-        </label>
-        <select
-          label="Format"
-          margin="dense"
-          onChange={(e) => handleChange("format", e.target.value)}
-          value={format}
-          variant="outlined"
-        >
-          <option value="">Pick format</option>
+        <div className="form-input">
+          <label className="inputDescr" htmlFor="fname">
+            Edition
+          </label>
+          <input
+            label="Edition"
+            className="form-text-input"
+            margin="dense"
+            onChange={(e) => handleChange("edition", e.target.value)}
+            placeholder="Edition"
+            value={edition}
+            variant="outlined"
+          />
+        </div>
 
-          {formats.map((option) => (
-            <option key={option.value} value={option.value}>
-              {" "}
-              {option.label}
-            </option>
-          ))}
-        </select>
+        <div className="form-input">
+          <label className="inputDescr" htmlFor="country">
+            Edition Lang.
+          </label>
+          <select
+            label="Edition language"
+            margin="dense"
+            onChange={(e) => handleChange("editionLanguage", e.target.value)}
+            value={editionLanguage}
+            variant="outlined"
+          >
+            <option value="">Pick edition language</option>
+            {languages.map((option) => (
+              <option key={option.value} value={option.value}>
+                {" "}
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-input">
+          <label className="inputDescr" htmlFor="country">
+            Description
+          </label>
+          <textarea
+            label="Description"
+            onChange={(e) => handleChange("bookDescription", e.target.value)}
+            required={isDescriptionRequired}
+            rows={4}
+            value={bookDescription}
+            className="form-text-input"
+            variant="outlined"
+            placeholder="Type the book description..."
+          ></textarea>
+        </div>
+        <div className="form-input mt-4">
+          {formError && (
+            <div
+              className={formError === true ? "displayError" : "errorMsgField"}
+            >
+              <h4 className="errorMsg">- Book title is required -</h4>
+            </div>
+          )}
+        </div>
       </div>
-
-      <div className="form-input">
-        <label className="inputDescr" htmlFor="fname">
-          Edition
-        </label>
-        <input
-          label="Edition"
-          className="form-text-input"
-          margin="dense"
-          onChange={(e) => handleChange("edition", e.target.value)}
-          placeholder="Edition"
-          value={edition}
-          variant="outlined"
-        />
-      </div>
-
-      <div className="form-input">
-        <label className="inputDescr" htmlFor="country">
-          Edition Lang.
-        </label>
-        <select
-          label="Edition language"
-          margin="dense"
-          onChange={(e) => handleChange("editionLanguage", e.target.value)}
-          value={editionLanguage}
-          variant="outlined"
-        >
-          <option value="">Pick edition language</option>
-          {languages.map((option) => (
-            <option key={option.value} value={option.value}>
-              {" "}
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="form-input">
-        <label className="inputDescr" htmlFor="country">
-          Description
-        </label>
-        <textarea
-          label="Description"
-          onChange={(e) => handleChange("bookDescription", e.target.value)}
-          required={isDescriptionRequired}
-          rows={4}
-          value={bookDescription}
-          className="form-text-input"
-          variant="outlined"
-          placeholder="Type the book description..."
-        ></textarea>
-      </div>
-    </div>
-    
-</React.Fragment>
+    </React.Fragment>
   );
 };
 

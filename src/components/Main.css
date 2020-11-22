@@ -46,6 +46,7 @@ display:none;
 
 .displayError{
     display: block !important;
+    position:relative;
     width: 60%;
     margin: auto;
     border-style: solid;
@@ -54,9 +55,12 @@ display:none;
     border-color: #d9534f;
     padding: 0px 5px 0px 5px;
     background-color: #FFCCCB;
+    left: 50%;
+    transform: translateX(-50%);
 
 
 }
+
 .errorMsg{
 font-weight: 700;
 color:#d9534f;

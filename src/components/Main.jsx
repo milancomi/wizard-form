@@ -326,15 +326,9 @@ class Main extends Component {
               editionLanguage={editionLanguage}
               bookDescription={bookDescription}
               isDescriptionRequired={false}
+              formError={formError}
             />
           )
-        )}
-        {formError && (
-          <div
-            className={formError === true ? "displayError" : "errorMsgField"}
-          >
-            <h4 className="errorMsg">- Book title is required -</h4>
-          </div>
         )}
         <div className="buttonField">
           {" "}
