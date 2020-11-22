@@ -1,84 +1,76 @@
-.genreField{
-    /* float:left; */
-    display:inline-block;
-    height:auto;
-    width:100px;
-    margin:20px 20px 20px 30px ;
-    border-radius: 20px;
-    border-style: solid;
-    border-width: 1px;
-    border-color:#CACACA;
-    padding:20px;
-    outline:none;
-
+.genreField {
+  /* float:left; */
+  display: inline-block;
+  height: auto;
+  width: 100px;
+  margin: 20px 20px 20px 30px;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cacaca;
+  padding: 20px;
+  outline: none;
 }
 
-.genreField2{
-    display:inline-block;
-
+.genreField2 {
+  display: inline-block;
 }
-.genreField:hover{
-    background-color:#CACACA;
-}
-
-.genreName{
-    text-align:center
+.genreField:hover {
+  background-color: #cacaca;
 }
 
-.genreForm{
-    background-color: #FEFEFE;
-    display:inline-block;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    height:auto;
-    width: 60%;
-    min-height: 300px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #BBBBBB;
-    
-
+.genreName {
+  text-align: center;
 }
 
-.grayClr{
-    background-color: #525965;
+.genreForm {
+  background-color: #fefefe;
+  display: inline-block;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: auto;
+  width: 60%;
+  min-height: 300px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #bbbbbb;
 }
 
-.btnNext{
-    float:right;
-    margin-top:5em;
+.grayClr {
+  background-color: #525965;
 }
 
-.selectedField{
-    background-color:#CACACA !important; 
+.btnNext {
+  float: right;
+  margin-top: 5em;
 }
 
-
-
+.selectedField {
+  background-color: #cacaca !important;
+}
 
 .Next {
-    background-color: #525A65;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    margin: 10px 15px 0 0;
-    width: 100px;
-    cursor: pointer;
-  }
-  .Next:hover{
-    background-color: #666f7c;
-  }
-  .Next:disabled{
-    cursor: not-allowed;
-    background-color: #7aa07c;
-  }
+  background-color: #525a65;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  margin: 10px 15px 0 0;
+  width: 100px;
+  cursor: pointer;
+}
+.Next:hover {
+  background-color: #666f7c;
+}
+.Next:disabled {
+  cursor: not-allowed;
+  background-color: #7aa07c;
+}
 
-  .grayClr{
-    background-color: #666f7c;
+.grayClr {
+  background-color: #666f7c;
+}
 
-  }
-
-  .genreBtn{
-      width:100%;
-  }
+.genreBtn {
+  width: 100%;
+}

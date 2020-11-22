@@ -1,12 +1,5 @@
 import React from "react";
 import "./InformationPart.css";
-
-// Material UI
-// import Grid from "@material-ui/core/Grid";
-// import TextField from "@material-ui/core/TextField";
-// import MenuItem from "@material-ui/core/MenuItem";
-
-// Constants
 import { authors, publishers, languages, formats } from "../constants";
 
 const InformationPart = ({

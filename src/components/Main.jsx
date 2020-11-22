@@ -1,13 +1,19 @@
 import React, { Component } from "react";
 
+// Form parts
 import GenrePart from "./GenrePart";
 import SubgenrePart from "./SubgenrePart";
-
-import dumyData from "../database/dumyData.json";
-import "./Main.css";
-import ModalDialog from "./ModalDialog";
 import CustomSubgenre from "./CustomSubgenre";
 import InformationPart from "./InformationPart";
+
+// Data json for genre and subgenre
+import dumyData from "../database/dumyData.json";
+
+// Modal PopUp on success submit
+import ModalDialog from "./ModalDialog";
+
+// Custom Style
+import "./Main.css";
 
 const steps = ["Genre", "Subgenre", "Information"];
 const extendedSteps = ["Genre", "Subgenre", "Add subgenre", "Information"];
@@ -43,10 +49,12 @@ class Main extends Component {
     };
   }
 
+  // Submit data
   handleSubmit = (event) => {
     event.preventDefault();
     event.stopPropagation();
     const newBook = this.createNewBook();
+    //  newBook  variable with data prepared for submiting post request
     if (newBook.bookTitle === "") {
       this.setState({
         formError: true,
@@ -71,6 +79,7 @@ class Main extends Component {
       });
     }
   };
+  // Form inputs cleaning
   handlerModal = () => {
     this.setState({
       modalDialogShow: false,
@@ -100,6 +109,7 @@ class Main extends Component {
       },
     });
   };
+  // input state populate
   handleChange = (field, value) => {
     if (field === "selectedGenre") {
       const subgenres = this.state.genres.find((genre) => genre.name === value);
@@ -135,6 +145,7 @@ class Main extends Component {
     });
   };
 
+  // Form wizard stepper buttons
   nextStep = (event, isLastStep) => {
     const { isNewSubgenreSelected } = this.state;
     if (isLastStep) {
@@ -304,7 +315,6 @@ class Main extends Component {
                 numberOfPages={numberOfPages}
                 format={format}
                 edition={edition}
-                
                 editionLanguage={editionLanguage}
                 bookDescription={bookDescription}
                 isDescriptionRequired={false}
@@ -356,10 +366,10 @@ class Main extends Component {
           </button>
         </div>
         {formError && (
-        <ModalDialog
-          handleClose={this.handlerModal}
-          modalDialog={this.state.modalDialogShow}
-        />
+          <ModalDialog
+            handleClose={this.handlerModal}
+            modalDialog={this.state.modalDialogShow}
+          />
         )}
       </React.Fragment>
     );
