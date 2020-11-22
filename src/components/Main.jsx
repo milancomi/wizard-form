@@ -5,7 +5,7 @@ import SubgenrePart from "./SubgenrePart";
 
 import dumyData from "../database/dumyData.json";
 import "./Main.css";
-import ModalDialog from './ModalDialog';
+import ModalDialog from "./ModalDialog";
 import CustomSubgenre from "./CustomSubgenre";
 import InformationPart from "./InformationPart";
 
@@ -23,8 +23,8 @@ class Main extends Component {
       isNewSubgenreSelected: false,
       isDescriptionRequired: false,
       selectedSubGenresByGenre: {},
-      modalDialogShow:false,
-      formError:false,
+      modalDialogShow: false,
+      formError: false,
       newBookData: {
         ISBN: "",
         author: "",
@@ -42,31 +42,20 @@ class Main extends Component {
       },
     };
   }
-  // handleRequiredDecription = (selectedGenre, selectedSubgenre) => {
-  //   const name = this.state.selectedSubGenresByGenre.name;
-  //   console.log(selectedSubgenre);
-  //   // console.log(this.state.genres).find((genre) =>genre.name);
-  //   // return this.state.selectedSubGenresByGenre.genres
-  //   //   .find((genre) => genre.name === name)
-  //   //   ?.this.state.selectedSubGenresByGenre['subgenres'].find((subgenre) => subgenre.name === this.state.selectedSubGenresByGenre.name)
-  //   //   ?.isDescriptionRequired;
-  // };
-
 
   handleSubmit = (event) => {
     event.preventDefault();
     event.stopPropagation();
     const newBook = this.createNewBook();
-    if(newBook.bookTitle==="")
-    {
+    if (newBook.bookTitle === "") {
       this.setState({
-        formError:true
+        formError: true,
       });
-    } else{
-      this.setState({modalDialogShow:true});
+    } else {
+      this.setState({ modalDialogShow: true });
       console.log(newBook);
     }
-  }
+  };
 
   handleCustomSubgenreInputs = (field, value) => {
     if (field === "customSubgenre") {
@@ -84,8 +73,8 @@ class Main extends Component {
   };
   handlerModal = () => {
     this.setState({
-      modalDialogShow:false,
-      activeStep:0,
+      modalDialogShow: false,
+      activeStep: 0,
       genres: dumyData["genres"],
       step: 1,
       activeStep: 0,
@@ -93,8 +82,7 @@ class Main extends Component {
       isNewSubgenreSelected: false,
       isDescriptionRequired: false,
       selectedSubGenresByGenre: {},
-      modalDialogShow:false,
-      formError:false,
+      formError: false,
       newBookData: {
         ISBN: "",
         author: "",
@@ -109,9 +97,9 @@ class Main extends Component {
         publisher: "",
         selectedGenre: "",
         selectedSubgenre: "",
-    }});
-    
-  }
+      },
+    });
+  };
   handleChange = (field, value) => {
     if (field === "selectedGenre") {
       const subgenres = this.state.genres.find((genre) => genre.name === value);
@@ -131,10 +119,6 @@ class Main extends Component {
       this.setState({
         haveExtendedStep: false,
         isNewSubgenreSelected: false,
-        // isDescriptionRequired: this.handleRequiredDecription(
-        //   this.state.newBookData.selectedGenre,
-        //   value
-        // ),
         newBookData: {
           ...this.state.newBookData,
           [field]: value,
@@ -223,28 +207,15 @@ class Main extends Component {
   };
 
   isNextDisabled = (isLastStep) => {
-    const {
-      activeStep,
-      newBookData,
-      isNewSubgenreSelected,
-      isDescriptionRequired,
-    } = this.state;
-    const { selectedGenre, selectedSubgenre, bookDescription } = newBookData;
+    const { activeStep, newBookData, isNewSubgenreSelected } = this.state;
+    const { selectedGenre, selectedSubgenre } = newBookData;
     if (activeStep === 0 && !selectedGenre) return true;
     if (activeStep === 1 && isNewSubgenreSelected) return false;
     if (activeStep === 1 && !selectedSubgenre) return true;
-    // if (isLastStep) {
-    //   if (isDescriptionRequired && !bookDescription) return true;
-    //   const newBook = this.createNewBook();
-    //   delete newBook.bookDescription;
-    //   if (Object.values(newBook).some((value) => !value)) return true;
-    // }
     return false;
   };
 
   render() {
-    // const steps = [1,2,3,4];
-    // const {step} = this.state;
     const {
       activeStep,
       haveExtendedStep,
@@ -253,7 +224,7 @@ class Main extends Component {
       newBookData,
       selectedSubGenresByGenre,
       genres,
-      formError
+      formError,
     } = this.state;
     const {
       ISBN,
@@ -276,7 +247,6 @@ class Main extends Component {
     )?.subgenres;
     const isLastStep = activeStep === dynamicSteps.length - 1;
 
-    // const dynamicSteps = haveExtendedStep ? extendedSteps :steps;
     return (
       <React.Fragment>
         <div>
@@ -286,10 +256,12 @@ class Main extends Component {
               className={
                 index === activeStep
                   ? "activeColor panelIndicator"
-                  : "panelIndicator"
+                  : "panelIndicator "
               }
             >
-              <h4 className="panelIndicatorText">{index+1} {label}</h4>
+              <h4 className="panelIndicatorText">
+                {index + 1}. {label}
+              </h4>
             </div>
           ))}
         </div>
@@ -332,6 +304,7 @@ class Main extends Component {
                 numberOfPages={numberOfPages}
                 format={format}
                 edition={edition}
+                
                 editionLanguage={editionLanguage}
                 bookDescription={bookDescription}
                 isDescriptionRequired={false}
@@ -356,10 +329,14 @@ class Main extends Component {
             />
           )
         )}
-          <div className={(formError === true) ? "displayError":"errorMsgField"}>
+        {formError && (
+          <div
+            className={formError === true ? "displayError" : "errorMsgField"}
+          >
             <h4 className="errorMsg">- Book title is required -</h4>
           </div>
-        <div>
+        )}
+        <div className="buttonField">
           {" "}
           <button
             variant="outlined"
@@ -377,12 +354,19 @@ class Main extends Component {
             className="nextBtn tooltip"
           >
             {isLastStep ? "Add [+]" : "Next » "}
-            {(this.isNextDisabled(isLastStep)) ? <span className="tooltiptext">Choose data first.</span> : ""}
+            {this.isNextDisabled(isLastStep) ? (
+              <span className="tooltiptext">Choose data first.</span>
+            ) : (
+              ""
+            )}
           </button>
-          </div>
-
-
-        <ModalDialog handleClose={this.handlerModal} modalDialog={this.state.modalDialogShow}/>
+        </div>
+        {formError && (
+        <ModalDialog
+          handleClose={this.handlerModal}
+          modalDialog={this.state.modalDialogShow}
+        />
+        )}
       </React.Fragment>
     );
   }

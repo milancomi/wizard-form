@@ -1,7 +1,7 @@
 .form-text-input, select {
     width: 70%;
     margin: 0 auto;
-    float:right;
+    float:right; 
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -14,6 +14,7 @@
     text-align: center;
     display:inline-block;
     margin:1rem;
+    float:left;
   }
   input[type=submit] {
     width: 100%;
@@ -35,32 +36,42 @@
   .infoForm{
     background-color: #FEFEFE;
     display:inline-block;
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     border-width: 1px;
     border-style: solid;
     border-color: #BBBBBB;
-    width: 80%;
-    height:auto;
-    overflow:auto;
+    width: 60%;
+    height:40em;
+
   }
 
-
+  .mt-5{
+    margin-top:100px !important;
+  }
   .customSubGenreForm{
     background-color: #FEFEFE;
     display:inline-block;
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     border-width: 1px;
     border-style: solid;
     border-color: #BBBBBB;
-    width: 80%;
+    width: 60%;
     height:10em;
+    min-height: 300px;
   }
 
   .form-input{
-    width:80%;
-    height:30px;
+    width:70%;
+    height:25px;
     display:inline-block;
-    padding:10px;
+    padding:5px;
     margin-top:15px;
 
   }
+
+
+  /* aaaaaaaaaaaa */
+
+

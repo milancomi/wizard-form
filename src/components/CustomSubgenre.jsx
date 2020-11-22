@@ -1,17 +1,10 @@
 import React from "react";
 
-// Material UI
-// import Grid from "@material-ui/core/Grid";
-// import TextField from "@material-ui/core/TextField";
-// import FormControlLabel from "@material-ui/core/FormControlLabel";
-// import Checkbox from "@material-ui/core/Checkbox";
-// import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
-// import CheckBoxIcon from "@material-ui/icons/CheckBox";
 
 const CustomSubgenre = ({ handleChange, value, isDescriptionRequired }) => {
   return (
-      <div className="customSubGenreForm">
-      <div className="form-input">
+      <div className="customSubGenreForm ">
+      <div className="form-input mt-5">
         <label className="inputDescr" htmlFor="fname">
           Subgenre name
         </label>

@@ -24,15 +24,19 @@ const InformationPart = ({
   publisher,
 }) => {
   return (
-    <div className="infoForm">
+<React.Fragment>
+
+<div className="infoForm">
+
       <div className="form-input">
-        <label className="inputDescr" htmlFor="fname">
+        <label className="inputDescr" htmlFor="bookTitle">
           Book Title
         </label>
         <input
           id="outlined-full-width"
           label="Book Title"
           margin="dense"
+          name="bookTitle"
           className="form-text-input"
           onChange={(e) => handleChange("bookTitle", e.target.value)}
           placeholder="Book Title"
@@ -52,6 +56,8 @@ const InformationPart = ({
           value={author}
           variant="outlined"
         >
+          <option value="">Pick author</option>
+
           {authors.map((option) => (
             <option key={option.value} value={option.value}>
               {" "}
@@ -81,13 +87,13 @@ const InformationPart = ({
           Publisher
         </label>
         <select
-           
           label="Publisher"
           margin="dense"
           onChange={(e) => handleChange("publisher", e.target.value)}
           value={publisher}
           variant="outlined"
         >
+          <option value="">Pick publisher</option>
           {publishers.map((option) => (
             <option key={option.value} value={option.value}>
               {" "}
@@ -101,7 +107,7 @@ const InformationPart = ({
           No. of pages
         </label>
         <input
-          className="form-text-input"
+          className="form-text-input "
           label="Numbers of page"
           margin="dense"
           onChange={(e) => handleChange("numberOfPages", e.target.value)}
@@ -110,7 +116,16 @@ const InformationPart = ({
           variant="outlined"
         />
       </div>
-
+      <div className="form-input">
+        <label className="inputDescr" htmlFor="country">
+          Format
+        </label>
+      <input type="date"
+                value={datePublished}
+                variant="outlined"
+                onChange={(e) => handleChange("datePublished", e.target.value)}
+      className="form-text-input"/>
+      </div>
       <div className="form-input">
         <label className="inputDescr" htmlFor="country">
           Format
@@ -122,10 +137,10 @@ const InformationPart = ({
           value={format}
           variant="outlined"
         >
-        <option value="">Pick format</option>
+          <option value="">Pick format</option>
 
           {formats.map((option) => (
-            <option key={option.value} value={option.value} >
+            <option key={option.value} value={option.value}>
               {" "}
               {option.label}
             </option>
@@ -138,7 +153,6 @@ const InformationPart = ({
           Edition
         </label>
         <input
-           
           label="Edition"
           className="form-text-input"
           margin="dense"
@@ -154,13 +168,13 @@ const InformationPart = ({
           Edition Lang.
         </label>
         <select
-           
           label="Edition language"
           margin="dense"
           onChange={(e) => handleChange("editionLanguage", e.target.value)}
           value={editionLanguage}
           variant="outlined"
         >
+          <option value="">Pick edition language</option>
           {languages.map((option) => (
             <option key={option.value} value={option.value}>
               {" "}
@@ -181,10 +195,12 @@ const InformationPart = ({
           value={bookDescription}
           className="form-text-input"
           variant="outlined"
-          placeholder="Type the description..."
+          placeholder="Type the book description..."
         ></textarea>
       </div>
     </div>
+    
+</React.Fragment>
   );
 };
 
